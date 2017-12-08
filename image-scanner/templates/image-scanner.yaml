@@ -69,6 +69,7 @@ objects:
           - name: docker-socket
             hostPath:
                path: /var/run/docker.sock
+        restartPolicy: Never
 parameters:
 - name: APPLICATION_NAME
   displayName: Application Name
