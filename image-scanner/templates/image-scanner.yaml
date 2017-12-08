@@ -27,6 +27,8 @@ objects:
       deploymentconfig: "${APPLICATION_NAME}"
     strategy:
       type: Recreate
+    triggers:
+    - type: ConfigChange
     template:
       metadata:
         labels:
@@ -55,6 +57,10 @@ objects:
               - "/tmp/registry/.dockercfg"
             ports:
               - containerPort: 8080
+            env:
+            - name: IMAGE_URL
+              value: "${IMAGE_URL}"
+
             volumeMounts:
                 # name must match the volume name below
                 - name: docker-registry
@@ -81,7 +87,7 @@ parameters:
 - name: IMAGE_URL
   displayName: Image URL to scan with OpenSCAP
   description: The image to perform OpenSCAP scan over.
-  value: registry.access.redhat.com/rhel7:latest
+  value: docker.io/library/centos:7.0.1406
   required: true
 - name: SCAN_TYPE
   displayName: Scan Type
