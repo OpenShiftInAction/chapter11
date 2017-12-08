@@ -48,6 +48,7 @@ objects:
               - "/tmp/image-content"
               - "--serve"
               - "0.0.0.0:8080"
+              - "--chroot"
               - "--scan-type"
               - "${SCAN_TYPE}"
               - "--scan-results-dir"
