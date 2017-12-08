@@ -93,7 +93,7 @@ parameters:
 - name: IMAGE_TO_SCAN_URL
   displayName: Image URL to scan with OpenSCAP
   description: The image getting scanned with OpenSCAP
-  value: docker.io/library/fedora:22
+  value: registry.access.redhat.com/rhel7:7.0-21
   required: true
 - name: SCAN_TYPE
   displayName: Scan Type
