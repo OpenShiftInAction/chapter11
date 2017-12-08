@@ -2,7 +2,7 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: image-inspector-template
+  name: image-scan-template
   annotations:
     openshift.io/display-name: An OpenSCAP Image Scanner (Ephemeral)
     description: |-
