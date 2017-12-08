@@ -39,11 +39,11 @@ objects:
         serviceAccountName: ${SERVICE_ACCOUNT}
         containers:
           - name: "${APPLICATION_NAME}"
-            image: registry.access.redhat.com/openshift3/image-inspector:latest
+            image: ${IMAGE_INSPECTOR_URL}
             command: [ "/usr/bin/image-inspector"]
             args:
               - "--image"
-              - "${IMAGE_URL}"
+              - "${IMAGE_TO_SCAN_URL}"
               - "--path"
               - "/tmp/image-content"
               - "--serve"
@@ -58,8 +58,8 @@ objects:
             ports:
               - containerPort: 8080
             env:
-            - name: IMAGE_URL
-              value: "${IMAGE_URL}"
+            - name: IMAGE_TO_SCAN_URL
+              value: "${IMAGE_TO_SCAN_URL}"
 
             volumeMounts:
                 # name must match the volume name below
@@ -84,9 +84,14 @@ parameters:
   description: The name assigned to all of the frontend objects defined in this template.
   value: image-inspector
   required: true
-- name: IMAGE_URL
+- name: IMAGE_INSPECTOR_URL
+  displayName: Container Image that is doing the scans
+  description: The image inspector image, defaults to CentOS, for RHEL use registry.access.redhat.com/openshift3/image-inspector:latest
+  value: docker.io/library/openshift/image-inspector:latest
+  required: true
+- name: IMAGE_TO_SCAN_URL
   displayName: Image URL to scan with OpenSCAP
-  description: The image to perform OpenSCAP scan over.
+  description: The image getting scanned with OpenSCAP
   value: docker.io/library/centos:7.0.1406
   required: true
 - name: SCAN_TYPE
