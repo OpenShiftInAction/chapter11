@@ -87,7 +87,7 @@ parameters:
 - name: IMAGE_INSPECTOR_URL
   displayName: Container Image that is doing the scans
   description: The image inspector image, defaults to CentOS, for RHEL use registry.access.redhat.com/openshift3/image-inspector:latest
-  value: docker.io/library/openshift/image-inspector:latest
+  value: docker.io/openshift/image-inspector:latest
   required: true
 - name: IMAGE_TO_SCAN_URL
   displayName: Image URL to scan with OpenSCAP
