@@ -55,7 +55,7 @@ parameters:
 - name: CMD
   displayName: Command
   description: Command to run in the template
-  value: tail
+  value: /usr/bin/tail
   required: true
 - name: ARG1
   displayName: Argument 1
