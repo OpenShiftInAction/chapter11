@@ -33,8 +33,6 @@ objects:
           app: "${APPLICATION_NAME}"
           deploymentconfig: "${APPLICATION_NAME}"
       spec:
-        serviceAccount: ${SERVICE_ACCOUNT}
-        serviceAccountName: ${SERVICE_ACCOUNT}
         containers:
           - name: "${APPLICATION_NAME}"
             image: ${IMAGE_URL}
